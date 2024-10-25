@@ -1,0 +1,28 @@
+.image-title{
+    /* margin-top: -20px; */
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size:2rem; /* Adjust as needed */
+    font-weight: bold;
+    text-align: center;
+}
+@media (max-width: 480px) {
+    .image-title {
+      font-size: 1.2rem; /* Smaller font size for phone screens */
+      padding: 8px 16px; /* Adjust padding if needed */
+    }
+  }
+.catagory-main{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    /* max-width: 600px; */
+}
+.catagory-image{
+    width: 100%;
+  height: auto;
+  display: block;
+}
