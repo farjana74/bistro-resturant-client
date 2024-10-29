@@ -22,7 +22,7 @@ const SectionTitle = ({subTitle, mainTitle}) => {
     return (
         <div className="pt-5 pb-3">
             <p className="" style={subStyle} >....{subTitle}....</p>
-            <h3 className="border-top border-bottom p-3 mx-auto" style={mainStyle} >{mainTitle}</h3>
+            <h3 className="border-top border-bottom p-3 mx-auto border-2" style={mainStyle} >{mainTitle}</h3>
         </div>
     );
 };

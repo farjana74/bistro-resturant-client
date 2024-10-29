@@ -1,0 +1,15 @@
+/* .https://i.ibb.co/ZKHHXgH/Rectangle-9.png */
+.bistro-bg{
+    background-image: url("https://i.ibb.co/ZKHHXgH/Rectangle-9.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+
+}
+.bistro-title section{
+    background-color: #FFF;
+    /* width: 50% !important; */
+    height: 70%;
+
+}

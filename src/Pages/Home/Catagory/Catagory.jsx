@@ -17,7 +17,7 @@ const Catagory = () => {
 
   return (
     <>
-      <div>
+      <div className="pb-5">
         <SectionTitle
           subTitle="From 11:00am to 10:00pm"
           mainTitle="ORDER ONLINE"
