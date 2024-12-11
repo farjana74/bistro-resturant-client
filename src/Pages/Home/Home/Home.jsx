@@ -1,6 +1,7 @@
 import Banner from "../Banner/Banner";
 import BistroBoss from "../BistroBoss/BistroBoss";
 import Catagory from "../Catagory/Catagory";
+import Menu from "../Menu/Menu";
 
 
 
@@ -12,6 +13,7 @@ const Home = () => {
             <br />
             <br />
             <BistroBoss></BistroBoss>
+            {/* <Menu></Menu> */}
         </div>
     );
 };

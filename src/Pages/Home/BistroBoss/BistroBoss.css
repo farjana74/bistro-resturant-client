@@ -3,13 +3,33 @@
     background-image: url("https://i.ibb.co/ZKHHXgH/Rectangle-9.png");
     background-repeat: no-repeat;
     background-position: center;
+    width: 100%;
     background-size: cover;
-    height: 500px;
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Enables flexbox for centering */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center;
 
 }
-.bistro-title section{
+.center-section{
     background-color: #FFF;
+    padding: 10px;
+    text-align: center;
+justify-content: center;
+    border-radius: 10px; /* Optional: Rounded corners */
+    text-align: center; /* Centers text inside the section */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     /* width: 50% !important; */
-    height: 70%;
+     /* height: 333px; */
+    width: 70%; 
+    max-width: 650px;
+    max-height: 90vh;
 
+}
+.bistro-description{
+   /* padding-top: 50px; */
+    text-align: center;
+}
+.bistro-details{
+    font-size: 16px;
 }
