@@ -1,6 +1,6 @@
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
-const Menu = () => {
+const PopularMenu = () => {
   return (
     <div>
       <div className="">
@@ -13,4 +13,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default PopularMenu;

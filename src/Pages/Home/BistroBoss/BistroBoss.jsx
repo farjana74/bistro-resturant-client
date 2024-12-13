@@ -4,7 +4,7 @@ const BistroBoss = () => {
     <div className="container bistro-bg mt-5">
       <div className="center-section ">
         <div className="bistro-description p-5">
-          <h2 className="pb-3">Bistro Boss</h2>
+          <h2 className="">Bistro Boss</h2>
           <p className="bistro-details">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Necessitatibus, libero accusamus laborum deserunt ratione dolor
