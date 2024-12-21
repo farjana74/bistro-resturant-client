@@ -1,7 +1,7 @@
 const MenuItem = ({ item }) => {
   const { name, recipe, image, category, price } = item;
   return (
-    <div className="d-flex justify-content-around align-content-center border">
+    <div className="d-flex justify-content-around align-content-center ">
       <div>
         <img
           style={{ borderRadius: "0px 200px 200px 200px",width:"118px",height:"104px" }}
