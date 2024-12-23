@@ -5,7 +5,7 @@ import recomendRecepe3 from "../../../assets/home/slide3.jpg";
 import "./ChefRecomend.css";
 const ChefRecomend = () => {
   return (
-    <div>
+    <div className="container">
       <div className="py-5">
         <SectionTitle
           subTitle="---Should Try---"
@@ -15,7 +15,7 @@ const ChefRecomend = () => {
       <div className="container">
         <div className="row g-5">
           <div className="col-lg-4 col-md-4 col-12">
-            <img className="w-100 h-50" src={recomendRecepe} alt="" />
+            <img style={{height:"40%"}} className="w-100" src={recomendRecepe} alt="" />
             <div style={{ backgroundColor: "#F3F3F3" }}>
               <div className="py-4 text-center">
                 <h5>Casunut Salad</h5>
@@ -31,7 +31,7 @@ const ChefRecomend = () => {
             </div>
           </div>
           <div className="col-lg-4 col-md-4 col-12">
-            <img className="w-100 h-50" src={recomendRecepe2} alt="" />
+            <img style={{height:"40%"}} className="w-100" src={recomendRecepe2} alt="" />
             <div style={{ backgroundColor: "#F3F3F3" }}>
               <div className="py-4 text-center">
                 <h5>Casunut Salad</h5>
@@ -46,7 +46,7 @@ const ChefRecomend = () => {
             </div>
           </div>
           <div className="col-lg-4 col-md-4 col-12">
-            <img className="w-100 h-50" src={recomendRecepe3} alt="" />
+            <img style={{height:"40%"}} className="w-100" src={recomendRecepe3} alt="" />
             
             <div style={{ backgroundColor: "#F3F3F3" }}>
               <div className="py-4 text-center">
