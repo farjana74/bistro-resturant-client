@@ -1,3 +1,4 @@
+import Footer from "../../Shared/Footer/Footer";
 import Banner from "../Banner/Banner";
 import BistroBoss from "../BistroBoss/BistroBoss";
 import CallUs from "../CallUs/CallUs";
@@ -23,6 +24,7 @@ const Home = () => {
             <ChefRecomend></ChefRecomend>
             <Featured></Featured>
             <Testimonial></Testimonial>
+            
 
 
         </div>

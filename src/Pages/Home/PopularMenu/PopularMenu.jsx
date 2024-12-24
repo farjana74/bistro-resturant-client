@@ -13,8 +13,8 @@ const PopularMenu = () => {
     setMenu(popularItems)})
   },[])
   return (
-    <div className="pb-5 container">
-      <div className="py-5">
+    <div className=" container">
+      <div className="">
         <SectionTitle
           subTitle="---Check it out---"
           mainTitle="FROM OUR MENU"

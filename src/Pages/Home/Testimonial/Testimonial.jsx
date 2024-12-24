@@ -22,7 +22,7 @@ const Testimonial = () => {
       .then((data) => setReview(data));
   }, []);
   return (
-    <div className="container">
+    <div className="container pb-5">
       <SectionTitle
         subTitle="What Our Clients Sa"
         mainTitle="TESTIMONIALS"
