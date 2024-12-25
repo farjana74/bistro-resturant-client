@@ -2,10 +2,10 @@ const Footer = () => {
   const footerStyle = {
     fontSize: "16px",
     fontWeight: 500,
-    margin: "3px",
+    margin: "0px",
   };
   return (
-    <div className=" mt-5 ">
+    <div style={{overflow:'hidden'}} className=" mt-5  ">
       <div className="">
         <div className="row">
           <div
@@ -14,7 +14,7 @@ const Footer = () => {
               color: "#ffff",
               textAlign: "center",
             }}
-            className=" p-5 col-md-6 col-12"
+            className=" p-3 col-md-6 col-12"
           >
             <h3 style={{ fontSize: "2rem" }} className="py-3">
               Contact Us
@@ -37,7 +37,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div style={{ backgroundColor: "#151515", marginBottom:0 }}>
+      <div style={{ backgroundColor: "#151515", marginBottom: 0 }}>
         <p
           style={{ textAlign: "center", color: "#ffff", fontSize: "16px" }}
           className=" py-3"

@@ -8,27 +8,21 @@ import Featured from "../Featured/Featured";
 import PopularMenu from "../PopularMenu/PopularMenu";
 import Testimonial from "../Testimonial/Testimonial";
 
-
-
-
 const Home = () => {
-    return (
-        <div className="">
-            <Banner></Banner>
-            <Catagory></Catagory>
-            <br />
-            <br />
-            <BistroBoss></BistroBoss>
-            <PopularMenu></PopularMenu>
-            <CallUs></CallUs>
-            <ChefRecomend></ChefRecomend>
-            <Featured></Featured>
-            <Testimonial></Testimonial>
-            
-
-
-        </div>
-    );
+  return (
+    <div className="">
+      <Banner></Banner>
+      <Catagory></Catagory>
+      <br />
+      <br />
+      <BistroBoss></BistroBoss>
+      <PopularMenu></PopularMenu>
+      <CallUs></CallUs>
+      <ChefRecomend></ChefRecomend>
+      {/* <Featured></Featured> */}
+      <Testimonial></Testimonial>
+    </div>
+  );
 };
 
 export default Home;
