@@ -10,7 +10,7 @@ import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import MenuCategory from "./MenuCategory/MenuCategory";
 const Menu = () => {
   const [menu] = useMenu();
-  const offered = menu.filter((item) => item.category === "offered");
+  const offered = menu.filter((item) => item.category === "drinks");
   const desert = menu.filter((item) => item.category === "dessert");
   const pizza = menu.filter((item) => item.category === "pizza");
   const salad = menu.filter((item) => item.category === "salad");
@@ -42,7 +42,7 @@ const Menu = () => {
       {/* desert item */}
       <MenuCategory
         items={desert}
-        title="DESERTS"
+        title="desert"
         img={desertImg}
         description="rem Ipsum has been the industry’s standard dummy 
              text ever since the 1500s, when an unknown printer took a galley 
@@ -52,7 +52,7 @@ const Menu = () => {
       {/* PIZZA item */}
       <MenuCategory
         items={pizza}
-        title="PIZZA"
+        title="pizza"
         img={pizzaImg}
         description="rem Ipsum has been the industry’s standard dummy 
              text ever since the 1500s, when an unknown printer took a galley 
@@ -62,7 +62,7 @@ const Menu = () => {
       {/* SALAD item */}
       <MenuCategory
         items={salad}
-        title="SALAD"
+        title="salad"
         img={saladImg}
         description="rem Ipsum has been the industry’s standard dummy 
              text ever since the 1500s, when an unknown printer took a galley 
@@ -72,7 +72,7 @@ const Menu = () => {
       {/* SOUP item */}
       <MenuCategory
         items={soup}
-        title="SOUP"
+        title="soup"
         img={soupImg}
         description="rem Ipsum has been the industry’s standard dummy 
              text ever since the 1500s, when an unknown printer took a galley 

@@ -16,7 +16,7 @@ const MenuCategory = ({ items, img, title, description }) => {
         ))}
       </div>
       <div className="text-center ">
-       <Link to="/order"> <button
+       <Link to={`/order/${title}`}> <button
           style={{
             fontSize: 20,
             fontWeight: 500,
