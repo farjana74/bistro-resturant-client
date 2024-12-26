@@ -15,7 +15,6 @@ import { Rating } from "@smastrom/react-rating";
 
 const Testimonial = () => {
   const [review, setReview] = useState([]);
-  console.log(review);
   useEffect(() => {
     fetch("reviews.json")
       .then((res) => res.json())

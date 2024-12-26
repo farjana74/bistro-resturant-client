@@ -14,7 +14,7 @@ const ChefRecomend = () => {
       </div>
       <div className="container">
         <div className="row g-3">
-          <div className="col-lg-4 col-md-4 col-12 border">
+          <div className="col-lg-4 col-md-4 col-12 ">
             <img style={{height:"35%"}} className="w-100" src={recomendRecepe} alt="" />
             <div style={{ backgroundColor: "#F3F3F3" }}>
               <div className="py-4 text-center">

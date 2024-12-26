@@ -1,6 +1,5 @@
-
-.bistro-bg{
-    background-image: url("https://i.ibb.co/ZKHHXgH/Rectangle-9.png");
+.menu-bg{
+    background-image: url("../../../assets/menu/banner3.jpg");
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
@@ -9,9 +8,8 @@
     display: flex; 
     justify-content: center;
     align-items: center;
-
 }
-.center-section{
+.menu-section{
     background-color: #FFF;
     padding: 10px;
     text-align: center;
@@ -24,9 +22,9 @@
     max-height: 90vh;
 
 }
-.bistro-description{
+.menu-description{
     text-align: center;
 }
-.bistro-details{
+.menu-details{
     font-size: 16px;
 }

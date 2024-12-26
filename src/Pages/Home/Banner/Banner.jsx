@@ -7,9 +7,10 @@ import slider3 from "../../../assets/home/03.png";
 import slider4 from "../../../assets/home/04.jpg";
 import slider5 from "../../../assets/home/05.png";
 import slider6 from "../../../assets/home/06.png";
+import { Position } from './../../../../node_modules/@restart/ui/esm/useWaypoint';
 const Banner = () => {
     return (
-        <Carousel className="container">
+        <Carousel style ={{Position:"absolute",top:0,left:0,zIndex:-1}} className="">
         <div>
             <img src={slider1} />
         </div>
