@@ -1,17 +1,11 @@
-import { useEffect } from "react";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
-import { useState } from "react";
-import MenuItem from "../../Shared/MenuItem/MenuItem";
+import useMenu from "../../../hooks/useMenu";
+import MenuCategory from "../../Menu/MenuCategory/MenuCategory";
 
 const PopularMenu = () => {
-  const [menu,setMenu] = useState([])
-  useEffect(()=>{
-  fetch('menu.json')
-  .then(res=>res.json())
-  .then(data=>{
-    const popularItems = data.filter(item => item.category==='popular')
-    setMenu(popularItems)})
-  },[])
+  const [menu] = useMenu();
+  const popularItems = menu.filter((item) => item.category === "popular");
+
   return (
     <div className=" container my-5 pb-5">
       <div className="">
@@ -20,22 +14,13 @@ const PopularMenu = () => {
           mainTitle="FROM OUR MENU"
         ></SectionTitle>
       </div>
-      <div className="container">
-      <div className="row g-5">
-      
-        
-        {
-          menu.map(item=>(
-            <div key={item._id} className="col-lg-6 col-12">
-              <MenuItem  item={item}></MenuItem>
-            </div>
 
-
-          ))
-        }
-        
-      </div>
-      </div>
+      <MenuCategory
+        items={popularItems}
+        description="rem Ipsum has been the industry’s standard dummy 
+             text ever since the 1500s, when an unknown printer took a galley 
+             of type and scrambled it to make a type specimen book."
+      ></MenuCategory>
     </div>
   );
 };
