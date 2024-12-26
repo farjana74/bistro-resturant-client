@@ -54,9 +54,9 @@ const NavBar = () => {
            <Link to ="/menu"> <Nav.Link style={navStyle} href="#menu">
               Our Menu
             </Nav.Link></Link>
-            <Nav.Link style={navStyle} href="#pricing">
+           <Link to ="/order"> <Nav.Link style={navStyle} href="#order">
               Our Shop
-            </Nav.Link>
+            </Nav.Link></Link>
             <Nav.Link style={navStyle} href="#pricing">
               Sign Out
             </Nav.Link>
