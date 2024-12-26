@@ -20,6 +20,15 @@
     width: 70%; 
     max-width: 650px;
     max-height: 90vh;
+    background-color: rgba(21, 21, 21, 0.60);
+    /* position: absolute; */
+    opacity: 1;
+    border: 0;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    color:#ffff;
+          /* width: "100%" */
 
 }
 .menu-description{
