@@ -28,9 +28,9 @@ const Order = () => {
         description="Would you like to try a dish?"
         coverImg={orderImg}
       ></Cover>
-      <div className="container">
-        <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-          <TabList>
+      <div className="container mt-5 " >
+        <Tabs className="text-center py-5" defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+          <TabList className="pb-3 text-uppercase" style={{fontSize:"24px", fontWeight:500, color: tabIndex? "#BB8506":"black"}}>
             <Tab>Salad</Tab>
             <Tab>Pizza</Tab>
             <Tab>Soup</Tab>
