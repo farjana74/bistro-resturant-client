@@ -1,6 +1,7 @@
 import Cover from "../../Shared/Cover/Cover";
 import contactBanner from "../../../assets/contact/banner.jpg";
 import ContactLocation from "./ContactLocation/ContactLocation";
+import ContactForm from "../ContactForm/ContactForm";
 
 const ContactUs = () => {
   return (
@@ -12,6 +13,7 @@ const ContactUs = () => {
       ></Cover>
 
       <ContactLocation></ContactLocation>
+      <ContactForm></ContactForm>
 
 
     </>
