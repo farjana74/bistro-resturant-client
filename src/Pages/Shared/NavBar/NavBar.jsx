@@ -57,6 +57,9 @@ const NavBar = () => {
            <Link to ="/order/salad"> <Nav.Link style={navStyle} href="#order">
               Our Shop
             </Nav.Link></Link>
+           <Link to ="/login"> <Nav.Link style={navStyle} href="#login">
+              Login
+            </Nav.Link></Link>
             <Nav.Link style={navStyle} href="#pricing">
               Sign Out
             </Nav.Link>

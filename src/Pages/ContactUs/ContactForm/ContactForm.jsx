@@ -44,7 +44,7 @@ const ContactForm = () => {
       
 
       <Form.Group className="mb-3" id="formGridCheckbox">
-        <Form.Check type="checkbox" label="I amn't a Robet" />
+        <Form.Check type="checkbox" label="I am not a Robet" />
       </Form.Group>
 
       <Button variant="primary" type="submit">
