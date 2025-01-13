@@ -10,12 +10,12 @@ const Login = () => {
     color: "#A1A1A1",
   };
   return (
-    <div className="container py-5">
+    <div className="container mt-5">
       <div className="row">
-        <div className="col-md-6 col-12 ">
+        <div className="col-md-6 col-12 col-sm-12 ">
           <img className="w-100" src={loginForm} alt="" />
         </div>
-        <div className="col-md-6 col-12">
+        <div className="col-md-6 col-12 col-sm-12">
           <div>
             <Form className="p-5 mt-2" style={{ backgroundColor: "#F3F3F3" }}>
               <Row className="mb-3">
