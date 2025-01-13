@@ -1,6 +1,38 @@
+import { useEffect, useRef, useState } from "react";
 import loginForm from "../../assets/others/authentication1.png";
-import { Button, Col, FloatingLabel, Form, Row } from "react-bootstrap";
+import { Button, FloatingLabel, Form } from "react-bootstrap";
+import {
+  loadCaptchaEnginge,
+  LoadCanvasTemplate,
+  LoadCanvasTemplateNoReload,
+  validateCaptcha,
+} from "react-simple-captcha";
+
 const Login = () => {
+  const captchaRef = useRef(null);
+  const [disable, setDisable] = useState(true);
+
+  const handleValidateCaptcha = () => {
+    const user_captcha_value = captchaRef.current.value;
+    if (validateCaptcha(user_captcha_value) == true) {
+      setDisable(false)
+      alert("Captcha Matched");
+    } else {
+      setDisable(true)
+      alert("Captcha Does Not Match");
+    }
+  };
+
+  useEffect(() => {
+    loadCaptchaEnginge(6);
+  }, []);
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+  };
   const formStyle = {
     BiBorderRadius: "8px",
     border: "1px solid #E8E8E8",
@@ -16,37 +48,49 @@ const Login = () => {
           <img className="w-100" src={loginForm} alt="" />
         </div>
         <div className="col-md-6 col-12 col-sm-12">
-          <div>
-            <Form className="p-5 mt-2" style={{ backgroundColor: "#F3F3F3" }}>
-              <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridEmail">
-                  <Form.Label>Name</Form.Label>
-                  <Form.Control
-                    style={{ formStyle }}
-                    type="email"
-                    placeholder="Enter Your Name"
-                  />
-                </Form.Group>
-
-                <Form.Group as={Col} controlId="formGridPassword">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    style={{ formStyle }}
-                    type="password"
-                    placeholder="Enter Your Password"
-                  />
-                </Form.Group>
-              </Row>
-
+          <div className="shadow">
+            <Form
+              onSubmit={handleLogin}
+              className="p-5 mt-2"
+              style={{ backgroundColor: "#F3F3F3" }}
+            >
               <Form.Group className="mb-3" controlId="formGridAddress1">
-                <Form.Label>Phone</Form.Label>
+                <Form.Label>Email</Form.Label>
                 <Form.Control
+                  name="email"
                   style={{ formStyle }}
-                  placeholder="Enter Your Phone Number"
+                  placeholder="Enter Your Email"
                 />
               </Form.Group>
 
-              <FloatingLabel
+              <Form.Group className="mb-3" controlId="formGridAddress1">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  name="password"
+                  style={{ formStyle }}
+                  placeholder="Enter Your Password"
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formGridAddress1">
+                <Form.Label>
+                  <LoadCanvasTemplate />
+                </Form.Label>
+                <Form.Control
+                  ref={captchaRef}
+                  name="captcha"
+                  style={{ formStyle }}
+                  placeholder="Type Above Captcha"
+                />
+                <button
+                  onClick={handleValidateCaptcha}
+                  type="button"
+                  className="btn btn-outline-success  mt-2"
+                >
+                  Validate
+                </button>
+              </Form.Group>
+
+              {/* <FloatingLabel
                 controlId="floatingTextarea"
                 label="Comments"
                 className="mb-3"
@@ -56,14 +100,23 @@ const Login = () => {
                   as="textarea"
                   placeholder="Leave a comment here"
                 />
-              </FloatingLabel>
+              </FloatingLabel> */}
 
               <Form.Group className="mb-3" id="formGridCheckbox">
                 <Form.Check type="checkbox" label="I am not a Robet" />
               </Form.Group>
 
-              <Button variant="primary" type="submit">
-                Submit
+              <Button disabled={disable}
+                style={{
+                  backgroundColor: "rgba(209, 160, 84)",
+                  border: 0,
+                  borderRadius: "8px",
+                }}
+                className="w-100"
+                variant="primary"
+                type="submit"
+              >
+                Sign in
               </Button>
             </Form>
           </div>
