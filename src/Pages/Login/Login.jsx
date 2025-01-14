@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import loginForm from "../../assets/others/authentication1.png";
-import { Button, FloatingLabel, Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
-  LoadCanvasTemplateNoReload,
+ 
   validateCaptcha,
 } from "react-simple-captcha";
 
