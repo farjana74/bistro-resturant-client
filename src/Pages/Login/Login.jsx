@@ -90,17 +90,7 @@ const Login = () => {
                 </button>
               </Form.Group>
 
-              {/* <FloatingLabel
-                controlId="floatingTextarea"
-                label="Comments"
-                className="mb-3"
-              >
-                <Form.Control
-                  style={{ formStyle }}
-                  as="textarea"
-                  placeholder="Leave a comment here"
-                />
-              </FloatingLabel> */}
+              
 
               <Form.Group className="mb-3" id="formGridCheckbox">
                 <Form.Check type="checkbox" label="I am not a Robet" />
