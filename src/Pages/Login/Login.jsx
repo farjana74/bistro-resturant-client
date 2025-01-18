@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import loginForm from "../../assets/others/authentication1.png";
 import { Button, Form } from "react-bootstrap";
 import {
@@ -7,10 +7,12 @@ import {
  
   validateCaptcha,
 } from "react-simple-captcha";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
   const captchaRef = useRef(null);
   const [disable, setDisable] = useState(true);
+  const {signIn} = useContext(AuthContext)
 
   const handleValidateCaptcha = () => {
     const user_captcha_value = captchaRef.current.value;
@@ -32,6 +34,13 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    signIn(email,password)
+    // console.log(email,password)
+    .then(result=>{
+      const user = result.user;
+      console.log(user)
+    })
+
   };
   const formStyle = {
     BiBorderRadius: "8px",
