@@ -8,6 +8,7 @@ import {
   validateCaptcha,
 } from "react-simple-captcha";
 import { AuthContext } from "../../providers/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const captchaRef = useRef(null);
@@ -51,13 +52,13 @@ const Login = () => {
     color: "#A1A1A1",
   };
   return (
-    <div className="container mt-5">
-      <div className="row">
+    <div className="container  my-5">
+      <div className="row p-3 shadow">
         <div className="col-md-6 col-12 col-sm-12 ">
           <img className="w-100" src={loginForm} alt="" />
         </div>
         <div className="col-md-6 col-12 col-sm-12">
-          <div className="shadow">
+          <div className="">
             <Form
               onSubmit={handleLogin}
               className="p-5 mt-2"
@@ -118,6 +119,7 @@ const Login = () => {
                 Sign in
               </Button>
             </Form>
+            <p className="text-center pt-2" style={{color:"#D1A054"}}><small>New Here? <Link to ='/signup'> Create New Account</Link></small></p>
           </div>
         </div>
       </div>

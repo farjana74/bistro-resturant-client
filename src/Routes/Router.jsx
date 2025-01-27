@@ -43,7 +43,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 
         },
         {
-            path:'signUp',
+            path:'signup',
             element:<SignUp></SignUp>
 
         }
