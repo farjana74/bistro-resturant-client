@@ -102,9 +102,6 @@ const Login = () => {
 
               
 
-              <Form.Group className="mb-3" id="formGridCheckbox">
-                <Form.Check type="checkbox" label="I am not a Robet" />
-              </Form.Group>
 
               <Button disabled={disable}
                 style={{
