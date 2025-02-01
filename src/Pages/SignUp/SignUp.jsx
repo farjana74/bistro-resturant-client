@@ -1,5 +1,6 @@
 import { Button, Form } from "react-bootstrap";
 import signForm from "../../assets/others/authentication2.png"
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
     const formStyle = {
@@ -24,6 +25,14 @@ const SignUp = () => {
                 style={{ backgroundColor: "#F3F3F3" }}
               >
                 <Form.Group className="mb-3" controlId="formGridAddress1">
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control
+                    name="name"
+                    style={{ formStyle }}
+                    placeholder="Enter Your Name"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formGridAddress1">
                   <Form.Label>Email</Form.Label>
                   <Form.Control
                     name="email"
@@ -40,24 +49,7 @@ const SignUp = () => {
                     placeholder="Enter Your Password"
                   />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formGridAddress1">
-                  <Form.Label>
-                    {/* <LoadCanvasTemplate /> */}
-                  </Form.Label>
-                  <Form.Control
-                    // ref={captchaRef}
-                    name="captcha"
-                    style={{ formStyle }}
-                    placeholder="Type Above Captcha"
-                  />
-                  <button
-                    // onClick={handleValidateCaptcha}
-                    type="button"
-                    className="btn btn-outline-success  mt-2"
-                  >
-                    Validate
-                  </button>
-                </Form.Group>
+                
   
                 
   
@@ -75,10 +67,10 @@ const SignUp = () => {
                   variant="primary"
                   type="submit"
                 >
-                  Sign in
+                  SignUp
                 </Button>
               </Form>
-              {/* <p className="text-center pt-2" style={{color:"#D1A054"}}><small>New Here? <Link to ='/signup'> Create New Account</Link></small></p> */}
+              <p className="text-center pt-2" style={{color:"#D1A054"}}><small>Already Registered? <Link to ='/login'> Go to login</Link></small></p>
             </div>
           </div>
         </div>
