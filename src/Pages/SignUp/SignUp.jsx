@@ -64,13 +64,18 @@ const SignUp = () => {
               <Form.Group className="mb-3" controlId="formGridAddress1">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
-                  {...register("password", { required: true })}
+                  {...register("password", { required: true,minLength:6,maxLength:20 })}
                   style={{ formStyle }}
                   placeholder="Password"
                 />
                 {errors.password && (
                   <span style={{ color: "#C71304" }}>
                     This field is required
+                  </span>
+                )}
+                {errors.password?.type =='minLength' && (
+                  <span style={{ color: "#C71304" }}>
+                    Password must be 6 character
                   </span>
                 )}
               </Form.Group>
