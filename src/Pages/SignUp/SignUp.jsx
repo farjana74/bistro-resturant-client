@@ -2,6 +2,8 @@ import { Button, Form } from "react-bootstrap";
 import signForm from "../../assets/others/authentication2.png";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { AuthContext } from './../../providers/AuthProvider';
 
 const SignUp = () => {
   const {
@@ -9,8 +11,18 @@ const SignUp = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const {createUser} = useContext(AuthContext)
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data)
+    createUser(data.email, data.password)
+    .then(result =>{
+      const logUser = result.user;
+      console.log(logUser)
+    })
+  }
+
+
 
   const formStyle = {
     borderRadius: "8px",
