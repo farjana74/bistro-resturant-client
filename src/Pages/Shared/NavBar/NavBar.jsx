@@ -1,8 +1,19 @@
 import {Nav, Navbar } from "react-bootstrap";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
+
+
 
 const NavBar = () => {
+  const {user, logOut} = useContext(AuthContext)
+
+  const handleLogout = ()=>{
+    logOut()
+    .then(()=>{})
+    .catch(error=>console.log(error))
+  }
   const navStyle = {
     color: "#fff",
     fontSize: "20px",
@@ -54,15 +65,20 @@ const NavBar = () => {
            <Link to ="/menu"> <Nav.Link style={navStyle} href="#menu">
               Our Menu
             </Nav.Link></Link>
+           <Link to ="/secrete"> <Nav.Link style={navStyle} href="#secrete">
+              Secrete
+            </Nav.Link></Link>
            <Link to ="/order/salad"> <Nav.Link style={navStyle} href="#order">
               Our Shop
             </Nav.Link></Link>
-           <Link to ="/login"> <Nav.Link style={navStyle} href="#login">
+
+            {
+              user? <> <button  onClick={handleLogout}>Logout</button></>: <> <Link to ="/login"> <Nav.Link style={navStyle} href="#login">
               Login
-            </Nav.Link></Link>
-            <Nav.Link style={navStyle} href="#pricing">
-              Sign Out
-            </Nav.Link>
+            </Nav.Link></Link></>
+            }
+          
+           
           </Nav>
         </Navbar.Collapse>
       </Navbar>

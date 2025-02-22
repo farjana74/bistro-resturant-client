@@ -1,28 +1,29 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import loginForm from "../../assets/others/authentication1.png";
 import { Button, Form } from "react-bootstrap";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
- 
   validateCaptcha,
 } from "react-simple-captcha";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const captchaRef = useRef(null);
   const [disable, setDisable] = useState(true);
-  const {signIn} = useContext(AuthContext)
+  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleValidateCaptcha = () => {
-    const user_captcha_value = captchaRef.current.value;
-    if (validateCaptcha(user_captcha_value) == true) {
-      setDisable(false)
-      alert("Captcha Matched");
+  let from = location.state?.from?.pathname || "/";
+
+  const handleValidateCaptcha = (e) => {
+    const user_captcha_value = e.target.value;
+    if (validateCaptcha(user_captcha_value)) {
+      setDisable(false);
     } else {
-      setDisable(true)
-      alert("Captcha Does Not Match");
+      setDisable(true);
     }
   };
 
@@ -35,12 +36,30 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    signIn(email,password)
-    // console.log(email,password)
-    .then(result=>{
-      const user = result.user;
-      console.log(user)
-    })
+    signIn(email, password)
+      // console.log(email,password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        Swal.fire({
+          title: "User login successfully",
+          showClass: {
+            popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `,
+          },
+          hideClass: {
+            popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `,
+          },
+        });
+      });
+      navigate(from, { replace: true });
 
   };
   const formStyle = {
@@ -86,24 +105,22 @@ const Login = () => {
                   <LoadCanvasTemplate />
                 </Form.Label>
                 <Form.Control
-                  ref={captchaRef}
+                  onBlur={handleValidateCaptcha}
                   name="captcha"
                   style={{ formStyle }}
                   placeholder="Type Above Captcha"
                 />
-                <button
-                  onClick={handleValidateCaptcha}
+                {/* <button
+                 
                   type="button"
                   className="btn btn-outline-success  mt-2"
                 >
                   Validate
-                </button>
+                </button> */}
               </Form.Group>
 
-              
-
-
-              <Button disabled={disable}
+              <Button
+                disabled={disable}
                 style={{
                   backgroundColor: "rgba(209, 160, 84)",
                   border: 0,
@@ -112,11 +129,16 @@ const Login = () => {
                 className="w-100"
                 variant="primary"
                 type="submit"
+                value="login"
               >
                 Sign in
               </Button>
             </Form>
-            <p className="text-center pt-2" style={{color:"#D1A054"}}><small>New Here? <Link to ='/signup'> Create New Account</Link></small></p>
+            <p className="text-center pt-2" style={{ color: "#D1A054" }}>
+              <small>
+                New Here? <Link to="/signup"> Create New Account</Link>
+              </small>
+            </p>
           </div>
         </div>
       </div>
