@@ -1,17 +1,19 @@
 import { Button, Form } from "react-bootstrap";
 import signForm from "../../assets/others/authentication2.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from './../../providers/AuthProvider';
+import Swal from "sweetalert2";
 
 const SignUp = () => {
-  const {
+  const {reset,
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const {createUser} = useContext(AuthContext)
+  const {createUser,updateUserProfile} = useContext(AuthContext)
+  const navigate = useNavigate()
 
   const onSubmit = (data) => {
     console.log(data)
@@ -19,6 +21,18 @@ const SignUp = () => {
     .then(result =>{
       const logUser = result.user;
       console.log(logUser)
+      updateUserProfile(data.name, data.photoURL)
+      .then(()=>{
+        console.log("update user successfully")
+        reset();
+        Swal.fire({
+          title: "User Profile create Successfully",
+          icon: "success",
+          draggable: true
+        });
+        navigate('/')
+      })
+      .catch(error=>console.log(error))
     })
   }
 
@@ -54,6 +68,20 @@ const SignUp = () => {
                 />
 
                 {errors.name && (
+                  <span style={{ color: "#C71304" }}>
+                    This field is required
+                  </span>
+                )}
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formGridAddress1">
+                <Form.Label>PhotoUrl</Form.Label>
+                <Form.Control
+                  {...register("photoURL", { required: true })}
+                  style={{ formStyle }}
+                  placeholder="Your PhotoURL"
+                />
+
+                {errors.photoURL && (
                   <span style={{ color: "#C71304" }}>
                     This field is required
                   </span>

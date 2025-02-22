@@ -73,7 +73,10 @@ const NavBar = () => {
             </Nav.Link></Link>
 
             {
-              user? <> <button  onClick={handleLogout}>Logout</button></>: <> <Link to ="/login"> <Nav.Link style={navStyle} href="#login">
+              user?
+              <> 
+              <span>{user?.displayName}</span>
+              <button  onClick={handleLogout}>Logout</button></>: <> <Link to ="/login"> <Nav.Link style={navStyle} href="#login">
               Login
             </Nav.Link></Link></>
             }
