@@ -1,19 +1,17 @@
-import {Nav, Navbar } from "react-bootstrap";
+import { Badge, Button, Nav, Navbar } from "react-bootstrap";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
-
-
-
+import { BsCart2 } from "react-icons/bs";
 const NavBar = () => {
-  const {user, logOut} = useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext);
 
-  const handleLogout = ()=>{
+  const handleLogout = () => {
     logOut()
-    .then(()=>{})
-    .catch(error=>console.log(error))
-  }
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   const navStyle = {
     color: "#fff",
     fontSize: "20px",
@@ -50,38 +48,69 @@ const NavBar = () => {
           </span>
         </Navbar.Brand>
 
-        <Navbar.Toggle className="navbar-toggler-icon" aria-controls="responsive-navbar-nav" />
+        <Navbar.Toggle
+          className="navbar-toggler-icon"
+          aria-controls="responsive-navbar-nav"
+        />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto text-white">
-            <Link to ="/"><Nav.Link to="/" style={navStyle} href="#home">
-              Home
-            </Nav.Link></Link>
-            <Link to ="/contact"><Nav.Link style={navStyle} href="#contact">
-              Contact Us
-            </Nav.Link></Link>
+            <Link to="/">
+              <Nav.Link to="/" style={navStyle} href="#home">
+                Home
+              </Nav.Link>
+            </Link>
+            <Link to="/contact">
+              <Nav.Link style={navStyle} href="#contact">
+                Contact Us
+              </Nav.Link>
+            </Link>
             <Nav.Link style={navStyle} href="#pricing">
               Dashboard
             </Nav.Link>
-           <Link to ="/menu"> <Nav.Link style={navStyle} href="#menu">
-              Our Menu
-            </Nav.Link></Link>
-           <Link to ="/secrete"> <Nav.Link style={navStyle} href="#secrete">
-              Secrete
-            </Nav.Link></Link>
-           <Link to ="/order/salad"> <Nav.Link style={navStyle} href="#order">
-              Our Shop
-            </Nav.Link></Link>
+            <Link to="/menu">
+              {" "}
+              <Nav.Link style={navStyle} href="#menu">
+                Our Menu
+              </Nav.Link>
+            </Link>
+            <Link to="/secrete">
+              {" "}
+              <Nav.Link style={navStyle} href="#secrete">
+                Secrete
+              </Nav.Link>
+            </Link>
+            <Link to="/order/salad">
+              {" "}
+              <Nav.Link style={navStyle} href="#order">
+                Our Shop
+              </Nav.Link>
+            </Link>
+            <Link to="/order/salad">
+              {" "}
+              <Nav.Link style={navStyle} href="#order">
+                <Button variant="primary">
+                <BsCart2 /> <Badge bg="secondary">9</Badge>
+                  <span className="visually-hidden">unread messages</span>
+                </Button>
+              </Nav.Link>
+            </Link>
 
-            {
-              user?
-              <> 
-              <span>{user?.displayName}</span>
-              <button  onClick={handleLogout}>Logout</button></>: <> <Link to ="/login"> <Nav.Link style={navStyle} href="#login">
-              Login
-            </Nav.Link></Link></>
-            }
-          
-           
+            {user ? (
+              <>
+                {/* <span>{user?.displayName}</span> */}
+                <button onClick={handleLogout}>Logout</button>
+              </>
+            ) : (
+              <>
+                {" "}
+                <Link to="/login">
+                  {" "}
+                  <Nav.Link style={navStyle} href="#login">
+                    Login
+                  </Nav.Link>
+                </Link>
+              </>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
