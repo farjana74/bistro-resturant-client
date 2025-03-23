@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { BsCart2 } from "react-icons/bs";
+import useCart from "../../../hooks/useCart";
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
-
+const [cart]= useCart()
   const handleLogout = () => {
     logOut()
       .then(() => {})
@@ -89,7 +90,7 @@ const NavBar = () => {
               {" "}
               <Nav.Link style={navStyle} href="#order">
                 <Button variant="primary">
-                <BsCart2 /> <Badge bg="secondary">9</Badge>
+                <BsCart2 /> <Badge bg="secondary">{cart.length}</Badge>
                   <span className="visually-hidden">unread messages</span>
                 </Button>
               </Nav.Link>
