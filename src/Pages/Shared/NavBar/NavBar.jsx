@@ -65,9 +65,7 @@ const [cart]= useCart()
                 Contact Us
               </Nav.Link>
             </Link>
-            <Nav.Link style={navStyle} href="#pricing">
-              Dashboard
-            </Nav.Link>
+            
             <Link to="/menu">
               {" "}
               <Nav.Link style={navStyle} href="#menu">
@@ -86,7 +84,7 @@ const [cart]= useCart()
                 Our Shop
               </Nav.Link>
             </Link>
-            <Link to="/order/salad">
+            <Link to="/dashboard/cart">
               {" "}
               <Nav.Link style={navStyle} href="#order">
                 <Button variant="primary">
