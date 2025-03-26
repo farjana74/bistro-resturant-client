@@ -1,6 +1,10 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
-
+import { RiReservedFill } from "react-icons/ri";
+import { MdPayment } from "react-icons/md";
+import { FaCartShopping } from "react-icons/fa6";
+import { MdRateReview } from "react-icons/md";
+import { TbBrandBooking } from "react-icons/tb";
 const Dashboard = () => {
   const menuContent = {
     backgroundColor: "#D1A054",
@@ -16,20 +20,46 @@ const Dashboard = () => {
   const contentStyle = {
     fontSize: "16px",
     fontWeight: 700,
+    paddingTop:'26px',
   };
+  const navStyle = {
+    fontSize: "16px",
+    fontWeight: 500,
+    color:"#151515"
+  }
   return (
     <div className="container-fluid">
       {/* dashboard sidebar */}
       <div className="row">
-      <div style={menuContent} className="p-3 col-md-3 col-sm-5">
+      <div style={menuContent} className="p-3 col-md-2 col-sm-5">
         <div className="text-center py-3">
           <h5 style={{ fontSize: "23px", fontWeight: 900 }}>BISTRO BOSS</h5>
           <h6 style={{ fontSize: "17px", fontWeight: 700 }}>Restaurant</h6>
         </div>
-        <ul style={{ listStyleType: "none" }} className="pt-3">
+        <ul style={{ listStyleType: "none" }} className="py-3">
           <li style={contentStyle}>
             <AiFillHome style={contentIcon} className="text-white" />
-            <NavLink to="/dashboard/cart">User Home</NavLink>
+            <NavLink style={navStyle}  className ="text-decoration-none text-white" to="/dashboard/cart">USER HOME</NavLink>
+          </li>
+          <li style={contentStyle}>
+            <RiReservedFill  style={contentIcon} className="" />
+            <NavLink style={navStyle}  className ="text-decoration-none  " to="/dashboard/cart">RESERVATION</NavLink>
+          </li>
+          <li style={contentStyle}>
+            <MdPayment style={contentIcon} />
+            <NavLink style={navStyle}  className ="text-decoration-none " to="/dashboard/cart">PAYMENT</NavLink>
+          </li>
+          <li style={contentStyle}>
+            <FaCartShopping style={contentIcon} className="" />
+            <NavLink style={navStyle}  className ="text-decoration-none" to="/dashboard/cart">MY CART</NavLink>
+          </li>
+          <li style={contentStyle}>
+            <MdRateReview style={contentIcon} className="" />
+            <NavLink style={navStyle}  className ="text-decoration-none " to="/dashboard/cart">ADD REVIEW</NavLink>
+          </li>
+          <li style={contentStyle}>
+            <TbBrandBooking style={contentIcon} className="" />
+            <NavLink style={navStyle}  className ="text-decoration-none " to="/dashboard/cart">MY BOOKING</NavLink>
           </li>
         </ul>
       </div>
