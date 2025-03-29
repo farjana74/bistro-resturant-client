@@ -1,7 +1,7 @@
 import { Table } from "react-bootstrap";
 import useCart from "../../../hooks/useCart";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
-
+import { RiDeleteBin6Line } from "react-icons/ri";
 const Cart = () => {
   const [cart] = useCart();
   console.log(cart);
@@ -29,7 +29,7 @@ const Cart = () => {
         </button>
       </div>
       <div className="pt-5 px-3">
-        <Table bordered responsive="sm">
+        <Table className="w-100" bordered responsive="sm">
           <thead>
             <tr>
               <th>#</th>
@@ -42,7 +42,7 @@ const Cart = () => {
           <tbody>
             {cart.map((item, index) => (
               <tr key={item._id}>
-                <th>{index}</th>
+                <th>{index+1}</th>
                 <td>{item.name}</td>
                 <td>
                   <img
@@ -51,10 +51,10 @@ const Cart = () => {
                     alt=""
                   />
                 </td>
-                <td>{item.price}</td>
-                <td>
-                  <button>Delete</button>
-                </td>
+                <td>${item.price}</td>
+                <th>
+                  <button style={{backgroundColor:'red',border:0}}><RiDeleteBin6Line style={{height:'25px',width:'24px',color:'#fff'}}/></button>
+                </th>
               </tr>
             ))}
           </tbody>
