@@ -82,7 +82,7 @@ const Dashboard = () => {
       </div>
 
       {/* dashboard content */}
-      <div className="col-md-7 col-sm-5">
+      <div className="col-md-9 col-sm-5 p-5">
         <Outlet></Outlet>
       </div>
       </div>
