@@ -2,14 +2,41 @@ import { Table } from "react-bootstrap";
 import useCart from "../../../hooks/useCart";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 const Cart = () => {
-  const [cart] = useCart();
-  console.log(cart);
+  const [cart,refetch] = useCart();
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+  const axiosSecure = useAxiosSecure();
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/carts/${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
 
   return (
     <div className="">
-         <SectionTitle
+      <SectionTitle
         subTitle="---My Cart---"
         mainTitle="Wanna Add More"
       ></SectionTitle>
@@ -42,7 +69,7 @@ const Cart = () => {
           <tbody>
             {cart.map((item, index) => (
               <tr key={item._id}>
-                <th>{index+1}</th>
+                <th>{index + 1}</th>
                 <td>{item.name}</td>
                 <td>
                   <img
@@ -53,7 +80,14 @@ const Cart = () => {
                 </td>
                 <td>${item.price}</td>
                 <th>
-                  <button style={{backgroundColor:'red',border:0}}><RiDeleteBin6Line style={{height:'25px',width:'24px',color:'#fff'}}/></button>
+                  <button
+                    onClick={() => handleDelete(item._id)}
+                    style={{ backgroundColor: "red", border: 0 }}
+                  >
+                    <RiDeleteBin6Line
+                      style={{ height: "25px", width: "24px", color: "#fff" }}
+                    />
+                  </button>
                 </th>
               </tr>
             ))}
