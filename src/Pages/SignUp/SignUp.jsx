@@ -152,6 +152,7 @@ const SignUp = () => {
                 Already Registered? <Link to="/login"> Go to login</Link>
               </small>
             </p>
+            
           </div>
         </div>
       </div>
