@@ -3,40 +3,50 @@ import signForm from "../../assets/others/authentication2.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
-import { AuthContext } from './../../providers/AuthProvider';
+import { AuthContext } from "./../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const SignUp = () => {
-  const {reset,
+  const axiosPublic = useAxiosPublic();
+  const {
+    reset,
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const {createUser,updateUserProfile} = useContext(AuthContext)
-  const navigate = useNavigate()
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data)
-    createUser(data.email, data.password)
-    .then(result =>{
+    // console.log(data)
+    createUser(data.email, data.password).then((result) => {
       const logUser = result.user;
-      console.log(logUser)
       updateUserProfile(data.name, data.photoURL)
-      .then(()=>{
-        console.log("update user successfully")
-        reset();
-        Swal.fire({
-          title: "User Profile create Successfully",
-          icon: "success",
-          draggable: true
-        });
-        navigate('/')
-      })
-      .catch(error=>console.log(error))
-    })
-  }
-
-
+        .then(() => {
+          // create user entry in database
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+          };
+          axiosPublic.post('/users',userInfo)
+          .then(res=>{
+            if(res.data.insertedId){
+              console.log('user added to database')
+              reset();
+              Swal.fire({
+                title: "User Profile create Successfully",
+                icon: "success",
+                draggable: true,
+              });
+              navigate("/");
+            }
+          })
+          
+        })
+        .catch((error) => console.log(error));
+    });
+  };
 
   const formStyle = {
     borderRadius: "8px",
@@ -104,7 +114,11 @@ const SignUp = () => {
               <Form.Group className="mb-3" controlId="formGridAddress1">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
-                  {...register("password", { required: true,minLength:6,maxLength:20 })}
+                  {...register("password", {
+                    required: true,
+                    minLength: 6,
+                    maxLength: 20,
+                  })}
                   style={{ formStyle }}
                   placeholder="Password"
                 />
@@ -113,7 +127,7 @@ const SignUp = () => {
                     This field is required
                   </span>
                 )}
-                {errors.password?.type =='minLength' && (
+                {errors.password?.type == "minLength" && (
                   <span style={{ color: "#C71304" }}>
                     Password must be 6 character
                   </span>
