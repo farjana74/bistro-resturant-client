@@ -140,11 +140,12 @@ const Login = () => {
                 New Here? <Link to="/signup"> Create New Account</Link>
               </small>
             </p>
-            {/* <div>
-              <div>
-                <SocialLogin> Google</SocialLogin>
+            <p className="text-center m-0" style={{ color: "#D1A054" }}>
+              Or Sign in with
+            </p>
+            <div className="text-center ">
+                <SocialLogin></SocialLogin>
               </div>
-            </div> */}
           </div>
         </div>
       </div>

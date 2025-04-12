@@ -9,14 +9,14 @@ import OrderTab from "../OrderTab/OrderTab";
 import { useParams } from "react-router-dom";
 
 const Order = () => {
-    const categories = ["salad","pizza","soup","desert","drink"]
+    const categories = ["salad","pizza","soup","desert","offered"]
     const{category} = useParams()
     const initialIndex = categories.indexOf(category)
   const [tabIndex, setTabIndex] = useState(initialIndex);
   const [menu] = useMenu();
  
   console.log(category)
-  const drinks = menu.filter((item) => item.category === "drinks");
+  const offered = menu.filter((item) => item.category === "offered");
   const desert = menu.filter((item) => item.category === "dessert");
   const pizza = menu.filter((item) => item.category === "pizza");
   const salad = menu.filter((item) => item.category === "salad");
@@ -35,7 +35,7 @@ const Order = () => {
             <Tab>Pizza</Tab>
             <Tab>Soup</Tab>
             <Tab>Desert</Tab>
-            <Tab>Drink</Tab>
+            <Tab>Offered</Tab>
           </TabList>
           <TabPanel>
             <OrderTab items={salad}></OrderTab>
@@ -43,7 +43,7 @@ const Order = () => {
           <TabPanel> <OrderTab items={pizza}></OrderTab></TabPanel>
           <TabPanel> <OrderTab items={soup}></OrderTab></TabPanel>
           <TabPanel> <OrderTab items={desert}></OrderTab></TabPanel>
-          <TabPanel> <OrderTab items={drinks}></OrderTab></TabPanel>
+          <TabPanel> <OrderTab items={offered}></OrderTab></TabPanel>
         </Tabs>
       </div>
     </>

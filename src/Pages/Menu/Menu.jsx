@@ -1,4 +1,4 @@
-import PopularMenu from "../Home/PopularMenu/PopularMenu";
+
 import Cover from "../Shared/Cover/Cover";
 import menuImg from "../../assets/menu/banner3.jpg";
 import desertImg from "../../assets/menu/dessert-bg.jpeg";
@@ -10,7 +10,7 @@ import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import MenuCategory from "./MenuCategory/MenuCategory";
 const Menu = () => {
   const [menu] = useMenu();
-  const offered = menu.filter((item) => item.category === "drinks");
+  const offered = menu.filter((item) => item.category === "offered");
   const desert = menu.filter((item) => item.category === "dessert");
   const pizza = menu.filter((item) => item.category === "pizza");
   const salad = menu.filter((item) => item.category === "salad");
@@ -33,6 +33,7 @@ const Menu = () => {
       {/* offered item */}
       <MenuCategory
         items={offered}
+        title='offered'
         img={desertImg}
         description="rem Ipsum has been the industry’s standard dummy 
              text ever since the 1500s, when an unknown printer took a galley 
