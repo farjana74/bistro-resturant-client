@@ -6,7 +6,8 @@ import { useContext } from "react";
 import { AuthContext } from "./../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-
+import { FcGoogle } from "react-icons/fc";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 const SignUp = () => {
   const axiosPublic = useAxiosPublic();
   const {
@@ -29,10 +30,9 @@ const SignUp = () => {
             name: data.name,
             email: data.email,
           };
-          axiosPublic.post('/users',userInfo)
-          .then(res=>{
-            if(res.data.insertedId){
-              console.log('user added to database')
+          axiosPublic.post("/users", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              console.log("user added to database");
               reset();
               Swal.fire({
                 title: "User Profile create Successfully",
@@ -41,8 +41,7 @@ const SignUp = () => {
               });
               navigate("/");
             }
-          })
-          
+          });
         })
         .catch((error) => console.log(error));
     });
@@ -58,17 +57,13 @@ const SignUp = () => {
   };
   return (
     <div className="container  my-5">
-      <div className="row p-3 shadow">
+      <div style={{ backgroundColor: "#F3F3F3" }} className="row p-3 shadow">
         <div className="col-md-6 col-12 col-sm-12 ">
           <img className="w-100" src={signForm} alt="" />
         </div>
         <div className="col-md-6 col-12 col-sm-12">
           <div className="">
-            <Form
-              onSubmit={handleSubmit(onSubmit)}
-              className="p-5 mt-2"
-              style={{ backgroundColor: "#F3F3F3" }}
-            >
+            <Form onSubmit={handleSubmit(onSubmit)} className="p-2 mt-2">
               <Form.Group className="mb-3" controlId="formGridAddress1">
                 <Form.Label>Name</Form.Label>
                 <Form.Control
@@ -152,7 +147,12 @@ const SignUp = () => {
                 Already Registered? <Link to="/login"> Go to login</Link>
               </small>
             </p>
-            
+            <p className="text-center m-0" style={{ color: "#D1A054" }}>
+              Or Sign in with
+            </p>
+            <div className="text-center ">
+                <SocialLogin></SocialLogin>
+              </div>
           </div>
         </div>
       </div>

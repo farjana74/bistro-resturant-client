@@ -140,11 +140,11 @@ const Login = () => {
                 New Here? <Link to="/signup"> Create New Account</Link>
               </small>
             </p>
-            <div>
+            {/* <div>
               <div>
                 <SocialLogin> Google</SocialLogin>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
