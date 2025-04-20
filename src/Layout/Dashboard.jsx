@@ -7,7 +7,9 @@ import { MdRateReview } from "react-icons/md";
 import { TbBrandBooking } from "react-icons/tb";
 import { MdMenu } from "react-icons/md";
 import { FaShoppingBag } from "react-icons/fa";
+import { BiSolidContact } from "react-icons/bi";
 const Dashboard = () => {
+  const isAdmin = true;
   const menuContent = {
     backgroundColor: "#D1A054",
     // width: "20%",
@@ -39,7 +41,9 @@ const Dashboard = () => {
           <h6 style={{ fontSize: "17px", fontWeight: 700 }}>Restaurant</h6>
         </div>
         <ul style={{ listStyleType: "none" }} className="py-3">
-          <li style={contentStyle}>
+          {
+            isAdmin ? <></> : <>
+            <li style={contentStyle}>
             <AiFillHome style={contentIcon} className="text-white" />
             <NavLink to ="/dashboard/userHome" style={navStyle}  className ="text-decoration-none text-white" >USER HOME</NavLink>
           </li>
@@ -63,9 +67,13 @@ const Dashboard = () => {
             <TbBrandBooking style={contentIcon} className="" />
             <NavLink style={navStyle}  className ="text-decoration-none " to="/dashboard/bookings">MY BOOKING</NavLink>
           </li>
+            </>
+          }
           <div>
             <hr style={{height:'2px',color:'#ffff'}} className=""/>
           </div>
+
+          {/* shared nav for alll */}
           <li style={contentStyle}>
             <AiFillHome style={contentIcon} className="" />
             <NavLink to ="/" style={navStyle}  className ="text-decoration-none" >HOME</NavLink>
@@ -77,6 +85,10 @@ const Dashboard = () => {
           <li style={contentStyle}>
             <FaShoppingBag style={contentIcon} className="" />
             <NavLink to ="/order/salad" style={navStyle}  className ="text-decoration-none" >Shop</NavLink>
+          </li>
+          <li style={contentStyle}>
+            <BiSolidContact style={contentIcon} className="" />
+            <NavLink to ="/contact" style={navStyle}  className ="text-decoration-none" >Contact</NavLink>
           </li>
         </ul>
       </div>
