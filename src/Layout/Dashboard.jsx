@@ -85,10 +85,10 @@ const Dashboard = () => {
                 </li>
                 <li style={contentStyle}>
                   <FaUsers style={contentIcon} className="" />
-                  <NavLink
+                  <NavLink 
                     style={navStyle}
                     className="text-decoration-none "
-                    to="/dashboard/review"
+                    to="/dashboard/users"
                   >
                     All Users
                   </NavLink>
