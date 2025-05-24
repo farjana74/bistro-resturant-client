@@ -8,8 +8,9 @@ import { TbBrandBooking } from "react-icons/tb";
 import { MdMenu } from "react-icons/md";
 import { FaShoppingBag } from "react-icons/fa";
 import { BiSolidContact } from "react-icons/bi";
+import useAdmin from "../hooks/useAdmin";
 const Dashboard = () => {
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
   const menuContent = {
     backgroundColor: "#D1A054",
     // width: "20%",
