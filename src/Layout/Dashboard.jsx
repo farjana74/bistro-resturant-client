@@ -20,7 +20,7 @@ const Dashboard = () => {
     width: "27px",
     height: "27px",
     marginRight: "8px",
-    marginBottom: "4px",
+    marginBottom: "5px",
   };
   const contentStyle = {
     fontSize: "16px",
