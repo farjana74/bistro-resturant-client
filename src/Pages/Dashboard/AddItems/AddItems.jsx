@@ -1,16 +1,16 @@
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const AddItems = () => {
-    return (
-        <div>
-              <div>
+  return (
+    <div>
+      <div>
         <SectionTitle
           subTitle="---How Many---"
           mainTitle="ADD AN ITEM"
         ></SectionTitle>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default AddItems;

@@ -16,6 +16,7 @@ import Dashboard from "../Layout/Dashboard";
 import Cart from "../Pages/Dashboard/Cart/Cart";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AddItems from "../Pages/Dashboard/AddItems/AddItems";
+import AdminRoute from './AdminRoute';
 
   
   export const router = createBrowserRouter([
